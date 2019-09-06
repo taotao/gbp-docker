@@ -12,4 +12,8 @@ env:
     - ARCH=armhf DIST=stretch
 
 script:
+  - >
+    sudo apt-get update &&
+    sudo apt-get install -y binfmt-support qemu-user-static &&
+    sudo systemctl restart binfmt-support
   - make ARCH=${ARCH} DIST=${DIST}
