@@ -8,6 +8,8 @@ env:
   matrix:
     - ARCH=amd64 DIST=jessie
     - ARCH=amd64 DIST=stretch
+    - ARCH=armhf DIST=jessie
+    - ARCH=armhf DIST=stretch
 
 script:
   - ARCH=${ARCH} DIST=${DIST} make
