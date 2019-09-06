@@ -1,0 +1,13 @@
+language: minimal
+dist: bionic
+
+services:
+  - docker
+
+env:
+  matrix:
+    - ARCH=amd64 DIST=jessie
+    - ARCH=amd64 DIST=stretch
+
+script:
+  - ARCH=${ARCH} DIST=${DIST} make
