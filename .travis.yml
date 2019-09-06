@@ -17,3 +17,13 @@ script:
     sudo apt-get install -y binfmt-support qemu-user-static &&
     sudo systemctl restart binfmt-support
   - make ARCH=${ARCH} DIST=${DIST}
+
+after_success:
+  - >
+    if [ "${TRAVIS_BRANCH}" == "master" ]; then
+      make upload
+        ARCH=${ARCH}
+        DIST=${DIST}
+        DOCKER_USERNAME=${DOCKER_USERNAME}
+        DOCKER_PASSWORD=${DOCKER_PASSWORD};
+    fi

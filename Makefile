@@ -20,5 +20,13 @@ build: Dockerfile
 		--build-arg DIST=${DIST} \
 		.
 
+upload:
+	docker tag \
+		${LOCAL_IMAGE_NAME} \
+		${REMOTE_IMAGE_NAME}
+	@echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
+	docker push ${REMOTE_IMAGE_NAME}
+	@docker logout
+
 clean:
 	docker rmi ${LOCAL_IMAGE_NAME}
