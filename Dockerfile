@@ -10,6 +10,7 @@ ENV DEBCONF_NONINTERACTIVE_SEEN "true"
 RUN \
 	apt-get update && \
 	apt-get install -y \
+		cmake \
 		devscripts \
 		build-essential \
 		git-buildpackage \
