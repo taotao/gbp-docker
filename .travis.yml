@@ -8,8 +8,12 @@ env:
   matrix:
     - ARCH=amd64 DIST=jessie
     - ARCH=amd64 DIST=stretch
+    - ARCH=amd64 DIST=buster
     - ARCH=armhf DIST=jessie
     - ARCH=armhf DIST=stretch
+    - ARCH=armhf DIST=buster
+    - ARCH=arm64 DIST=stretch
+    - ARCH=arm64 DIST=buster
 
 script:
   - >
